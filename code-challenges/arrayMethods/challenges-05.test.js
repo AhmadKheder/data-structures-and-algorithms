@@ -39,22 +39,25 @@ let $ = createSnippetWithJQuery(`
  
 </main>
 `);
+// const $ =cheerio.load('se')
 
 const templateWithJQuery = () => {
   // Solution code here...
-  
- let starWarsPple=  starWarsPeople.forEach((item)=>{
-  let section =  $($('#template').html);  
-    section($('h2').text(item.name));
-    section($('h3').text(item.height));
-    section($('p').text(item.eye_color));
-    $($('main').append(section));
+  starWarsPeople.forEach((item)=>{
+    // const $ = cheerio.load('<section id="template">...</section>');
+
+    // const $ = cheerio.load('<section id="template">...</section>',);
+
+  let section =  $('#template').html(); 
+  section.addClass(item.name) ;
+    $(`.${item.name} h2`).text(item.name);
+    $(`.${item.name} h3`).text(item.height);
+    $(`.${item.name} hp`).text(item.eye_color);
+    
+    $('main').append(section);
   });
 
-//   $($('#tempate').remove());
-//   let sec = '<section></section>';
-//   sec.append(content);
-// return starWarsPple;
+
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -144,11 +147,9 @@ const listFoods = (recipe) => {
   // Solution code here...
   recipe.ingredients.forEach((item)=>{
    let x = item.slice(item.indexOf(' ' ,2)); //' welcome'
-   let y = x.slice(1,x.length);
+   let y = x.slice(1,x.length);// 'welcome'
    result.push(y);
 });
-
-  
   return result;
 };
 // listFoods(gruffaloCrumble);
