@@ -28,7 +28,7 @@ Write a function that appends ' The end.' to a string,
 ------------------------------------------------------------------------------------------------ */
 
 const appendTheEnd = (str) => {
-   return  str.concat(' The end.');
+    return str.concat(' The end.');
 };
 
 
@@ -48,14 +48,15 @@ console.log(a) prints [1, 2, 3, 1]
 ------------------------------------------------------------------------------------------------ */
 
 const appendFirstToLast = (arr) => {
-    let first = arr[0];
-    arr.push(first);
+    arr.push(arr[0]);
 };
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
 Write a function that accepts an object and an integer as arguments and
- adds a new property to the object called yearBorn. The value of the yearBorn property should be the integer that was passed in.
+ adds a new property to the object called yearBorn. 
+ The value of the yearBorn property should be the integer that was passed in.
 
 The change should be reflected in the source object that was passed in to the function. That is, the function should modify the object 'in place'.
 
@@ -69,12 +70,14 @@ console.log(a) prints { fullName: 'Octavia Estelle Butler', yearBorn: 1947 }
 
 const addBirthYearProperty = (obj, year) => {
     // Solution code here...
+    obj.yearBorn = year;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
 
-Write a function that accepts an array of people objects and adds a new property called isAuthor to each object in the list. Set the value of the new property to true.
+Write a function that accepts an array of people objects and adds a new property called isAuthor
+ to each object in the list. Set the value of the new property to true.
 
 The function should modify the object in place. Do not use a return statement.
 
@@ -86,6 +89,9 @@ console.log(people[1].isAuthor) prints true
 
 const setStatusAsAuthor = (people) => {
     // Solution code here...
+    people.forEach((person) => {
+        person.isAuthor = true
+    })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -106,6 +112,9 @@ console.log(a) prints [1, 2, 3, 4]
 const append = (arr1, arr2) => {
     // Solution code here...
 
+    arr2.forEach((item) => {
+        arr1.push(item);
+    });
 };
 
 /* ------------------------------------------------------------------------------------------------
