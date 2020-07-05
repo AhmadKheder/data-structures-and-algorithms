@@ -146,10 +146,13 @@ const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
   recipe.ingredients.forEach((item)=>{
-   let x = item.slice(item.indexOf(' ' ,2)); //' welcome'
-   let y = x.slice(1,x.length);// 'welcome'
-   result.push(y);
-});
+   let x = item.slice(item.indexOf(' ' ,3)+1);
+  //  '8 pounds oats'
+  //  '2 gallons pure maple syrup',
+  //  '16 cups chopped nuts',
+   result.push(x);
+  });
+  console.log(result)
   return result;
 };
 // listFoods(gruffaloCrumble);
