@@ -38,17 +38,7 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 const grandTotal = (stores) => {
-  // Solution code here...
-
-  // Solution number 1
-
-  //   let totalarr=[];
-  // for (let i in firstPike){
-  // totalarr.push(firstPike[i]+seaTac[i]+seattleCenter[i]+capHill[i]+alkiBeach[i]);
-  // }
-  // return totalarr;
-
-  // Solution number 2
+ 
   let totalarr = [];
   for (let i in firstPike) {
     var sumPerHour = 0;
@@ -66,7 +56,8 @@ const grandTotal = (stores) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Pat has decided that he would also like to organize his data as objects containing the number of cookies sold per hour and the time.
+Pat has decided that he would also like to organize his data as objects containing 
+the number of cookies sold per hour and the time.
 
 Here is sample data for the 9:00 sales: { sales: '88 cookies', time: '9 a.m.' }.
 
@@ -79,15 +70,22 @@ function Object(sales, time) {
   allsales.push(this);
 }
 
+let newobj = [];
 
 const salesData = (hours, data) => {
   // Solution code here...
   hours.forEach((ele,idx)=>{
 
     new Object(ttt[idx], hoursOpen[idx]);
-   })
- 
-   return allsales;
+   });
+   for(let i in allsales ){
+    let temp ={};
+    temp.sales = allsales[i].sales
+    temp.time = allsales[i].time
+    newobj.push(temp)
+  }
+
+   return newobj;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -259,6 +257,21 @@ describe('Testing challenge 3', () => {
       { sales: '161 cookies', time: '7 p.m.' },
       { sales: '169 cookies', time: '8 p.m.' }
     ]);
+    // [
+    //     { sales: '88 cookies', time: '9 a.m.' },
+    //     { sales: '153 cookies', time: '10 a.m.' },
+    //     { sales: '252 cookies', time: '11 a.m.' },
+    //     { sales: '286 cookies', time: '12 p.m.' },
+    //     { sales: '139 cookies', time: '1 p.m.' },
+    //     { sales: '161 cookies', time: '2 p.m.' },
+    //     { sales: '145 cookies', time: '3 p.m.' },
+    //     { sales: '232 cookies', time: '4 p.m.' },
+    //     { sales: '276 cookies', time: '5 p.m.' },
+    //     { sales: '207 cookies', time: '6 p.m.' },
+    //     { sales: '161 cookies', time: '7 p.m.' },
+    //     { sales: '169 cookies', time: '8 p.m.' }
+    //   ]
+      
 
     expect(salesData(hoursOpen, grandTotal(cookieStores)).length).toStrictEqual(hoursOpen.length);
   });
