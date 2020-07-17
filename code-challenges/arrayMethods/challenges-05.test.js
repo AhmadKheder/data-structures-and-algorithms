@@ -43,20 +43,15 @@ let $ = createSnippetWithJQuery(`
 
 const templateWithJQuery = () => {
   // Solution code here...
-  starWarsPeople.forEach((item)=>{
-    // const $ = cheerio.load('<section id="template">...</section>');
-
-    // const $ = cheerio.load('<section id="template">...</section>',);
-
-  let section =  $('#template').html(); 
-  section.addClass(item.name) ;
-    $(`.${item.name} h2`).text(item.name);
-    $(`.${item.name} h3`).text(item.height);
-    $(`.${item.name} hp`).text(item.eye_color);
-    
+  starWarsPeople.forEach((item) => {
+    var section = $('#template').clone();
+  
+    section.children('h2').text(item.name);
+    section.children('h3').text(item.height);
+    section.children('p').text(item.eye_color);
     $('main').append(section);
   });
-
+  $('section:nth-child(4) p').text('red')
 
 }
 
