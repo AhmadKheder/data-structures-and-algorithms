@@ -22,3 +22,5 @@ Implement Singly Linked List in javascript and implement a way to insert, search
 - inser() -> time: O (1)
 - include() -> time: O (n)
 - toString() -> time: O (n)
+## White Board
+![](linkedlistWBoard.jpg)
